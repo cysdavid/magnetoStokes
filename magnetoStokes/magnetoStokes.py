@@ -338,6 +338,49 @@ class magStokes():
         uNdim = self.uSteadyND(rND,zND,l)*(1-np.exp(-np.pi**2*tND/(4*self.ReC)))
         return uNdim
     
+    def thetaND(self,rND,zND,tND,θ0=0,l=3):
+        '''
+        Computes the angular position of a fluid parcel
+        starting at θ = θ0, dimensionless radial position
+        rND, and dimensionless vertical position zND, for an
+        initially-quiescent layer of finite depth (h/r_o > 0)
+        at dimensionless time tND after current is turned on.
+
+        Parameters
+        ----------
+        rND : float
+            Dimensionless radial position
+            rND = r/r_o.
+        zND : float
+            Dimensionless vertical distance
+            from the bottom of the channel
+            zND = z/h.
+        tND : float
+            Dimensionless time after electrical power
+            supply is turned on: tND = t/((r_o + r_i)/U),
+            where U = (Imax B/(2 π μ)) * (γ/(1+χ)).
+        θ0 : float
+            Initial angular position
+            of fluid parcel (rad).
+        l : int
+            The number of terms to retain in
+            the 2D series solution.
+
+        Returns
+        -------
+        θ : float
+            Angular position (rad) of fluid
+            parcel at dimensionless time tND.
+
+        Reference
+        ---------
+        C.S. David, E.W. Hester, Y. Xu, J.M. Aurnou.
+        Magneto-Stokes Flow in a Shallow Free-Surface Annulus. In prep.
+        '''
+        u2D = self.uND(rND,zND,tND,l)
+        θ = θ0 + (u2D*(4*(-1 + np.exp(-(np.pi**2*tND)/(4*self.ReC)))*self.ReC + np.pi**2*tND)*(1 + self.χ))/(np.pi**2*rND)
+        return θ
+    
     def uShallow(self,r,z):
         '''
         Computes the (dimensional) steady
@@ -433,7 +476,48 @@ class magStokes():
         tND = t/self.T
         u = self.U*self.uSteadyND(rND,zND,l)*(1-np.exp(-np.pi**2*tND/(4*self.ReC)))
         return u
-        
+    
+    def theta(self,r,z,t,θ0=0,l=3):
+        '''
+        Computes the angular position of a fluid parcel
+        starting at θ = θ0, radial position r, and vertical
+        position z, for an initially-quiescent layer of finite
+        depth (h/r_o > 0) at time t after current is turned on.
+
+        Parameters
+        ----------
+        r : float
+            Radial position (m).
+        z : float
+            Vertical distance from the
+            bottom of the channel (m).
+        t : float
+            Time after electrical power
+            supply is turned on (s).
+        θ0 : float
+            Initial angular position
+            of fluid parcel (rad).
+        l : int
+            The number of terms to retain in
+            the 2D series solution.
+
+        Returns
+        -------
+        θ : float
+            Angular position (rad)
+            of fluid parcel at time t.
+
+        Reference
+        ---------
+        C.S. David, E.W. Hester, Y. Xu, J.M. Aurnou.
+        Magneto-Stokes Flow in a Shallow Free-Surface Annulus. In prep.
+        '''
+        rND = r/self.r_o
+        zND = z/self.h
+        tND = t/self.T
+        θ = self.thetaND(rND,zND,tND,θ0,l)
+        return θ
+    
     def An(r,n,γ,χ):
         an = (16*(1 + χ)*(i1(((-0.5 + n)*np.pi*r)/γ)*(-(r*k1(((-0.5 + n)*np.pi)/γ)) + χ*r*k1((χ*(-0.5 + n)*np.pi)/γ)) + 
                 χ*i1((χ*(-0.5 + n)*np.pi)/γ)*(k1(((-0.5 + n)*np.pi)/γ) - r*k1(((-0.5 + n)*np.pi*r)/γ)) + 

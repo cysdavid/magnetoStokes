@@ -10,7 +10,7 @@ When the power supply is turned on, the fluid experiences an azimuthal electroma
 
 The dimensionless axisymmetric solution for spin-up from rest may be approximated as 
 
-${u}^*_\theta(\tilde{r},\tilde{z},\tilde{t}) = (\sum\_{n=1} \frac{2(\chi+1)}{k_n^2 \gamma}[ \frac{\gamma}{k_n \tilde{r}}-A_n I_1( \frac{k_n}{ \gamma}\tilde{r}) - B_n K_1( \frac{k_n}{ \gamma}\tilde{r}) ]\sin (k_n  \tilde{z}) )\times [1- \exp(-\frac{\pi ^2}{4 {Re}_C}\tilde{t})]$
+${u}^*_\theta(\tilde{r},\tilde{z},\tilde{t}) = (\sum _{n=1} \frac{2(\chi+1)}{k_n^2 \gamma}[ \frac{\gamma}{k_n \tilde{r}}-A_n I_1( \frac{k_n}{ \gamma}\tilde{r}) - B_n K_1( \frac{k_n}{ \gamma}\tilde{r}) ]\sin (k_n  \tilde{z}) )\times [1- \exp(-\frac{\pi ^2}{4 {Re}_C}\tilde{t})]$
 
 where
 
@@ -37,7 +37,11 @@ Given laboratory parameters, this package implements the solution above. For exa
 
 The example notebook (example.ipynb) demonstrates how to make the following plot of predicted velocity at time t after the power supply is turned on:
 
-![soln.jpg](images/Soln.jpg)
+![Soln.jpg](images/Soln.jpg)
+
+This code can also be used to compare lab data to theoretical predictions. The example notebook demonstrates how to make the following figure of theory (magenta) plotted over videoframes of a dye steak experiment:
+
+![Dye.jpg](images/Dye.jpg)
 
 [1] C.S. David, E.W. Hester, Y. Xu, J.M. Aurnou.
     Magneto-Stokes Flow in a Shallow Free-Surface Annulus. In prep.
