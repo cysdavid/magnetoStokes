@@ -39,7 +39,7 @@ The example notebook (example.ipynb) demonstrates how to make the following plot
 
 ![Soln.jpg](images/Soln.jpg)
 
-This code can also be used to compare lab data to theoretical predictions. The example notebook demonstrates how to make the following figure of theory (magenta) plotted over videoframes of a dye steak experiment:
+This code can also be used to compare lab data to theoretical predictions. The example notebook demonstrates how to make the following figure of theory (magenta) plotted over videoframes of a dye streak experiment:
 
 ![Dye.jpg](images/Dye.jpg)
 
