@@ -1,0 +1,5 @@
+RUN,Current (A),"Uncertainty, current (A)",Magnetic field (Gauss),"Uncertainty, magnetic field (Gauss)",Salinity (ppt),"Uncertainty, salinity (ppt)",Height fluid (cm),"Uncertainty, height fluid (cm)",Inner radius (cm),"Uncertainty, inner radius (cm)",Outer radius (cm),"Uncertainty, outer radius (cm)",comments
+RUN A3,0.08,0.003,300,2.143875417,80,0.05,0.4,0.05,4.43,0.025,17.53,0.025,Romag
+RUN C2,0.1,0.003,300,5.932981546,80,0.05,0.4,0.05,7.63,0.025,17.53,0.025,Romag
+RUN D1,0.04,0.003,200,3.95532103,80,0.05,0.8,0.05,7.63,0.025,17.53,0.025,"Romag, B_sigma scaled from data at 300 Gauss"
+RUN E1,0.1,0.003,350,11.82467577,80,0.05,0.4,0.05,10.15,0.025,17.53,0.025,"Romag, B_sigma scaled from data at 300 Gauss"
