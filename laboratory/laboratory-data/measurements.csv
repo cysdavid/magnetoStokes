@@ -1,0 +1,6 @@
+Case,RUN,Salinity (ppt),"Uncertainty, salinity (ppt)",Height fluid (cm),"Uncertainty, height fluid (cm)",Volume (mL),Current (A),"Uncertainty, current (A)",Voltage (V),Magnetic field (Gauss),Inner radius (cm),"Uncertainty, inner radius (cm)",Outer radius (cm),"Uncertainty, outer radius (cm)",Current direction,Flow direction,Hele-Shaw obstacle diameter (cm),Distance between cylinder centers (cm),Notes,B source,t_obs (s)
+I,RUN A3,80,0.05,0.4,0.05,364,0.08,0.003,1.5,300,4.43,0.025,17.53,0.025,outward,CCW,,0,,Romag,
+II,RUN C2,80,0.05,0.4,0.05,286,0.1,0.003,1.1,300,7.63,0.025,17.53,0.025,outward,CCW,,0,,Romag,
+III,RUN D1,80,0.05,0.8,0.05,572,0.04,0.003,0.07,200,7.63,0.025,17.53,0.025,outward,CCW,,0,,Romag,
+IV,RUN E1,80,0.05,0.4,0.05,224,0.1,0.003,1.8,350,10.15,0.025,17.53,0.025,outward,CCW,,0,,Romag,
+HS,RUN HSD9-1,80,0.05,0.2,0.05,55,0.06,0.003,,187.6,3.75,0.025,9.85,0.025,outward,CCW,1.6,0,theta_obs = 180 deg,Perm array,
